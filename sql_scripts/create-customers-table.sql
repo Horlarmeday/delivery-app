@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS Customers;
 CREATE TABLE Customers
-(CustomerID int NOT NULL PRIMARY KEY,
+(CustomerID nchar(5) NOT NULL PRIMARY KEY,
 CompanyName nvarchar(40) NOT NULL,
 ContactName nvarchar(30) NOT NULL,
 ContactTitle nvarchar(30) NOT NULL,

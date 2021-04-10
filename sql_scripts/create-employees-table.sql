@@ -14,8 +14,9 @@ PostalCode nvarchar(10) NOT NULL,
 Country nvarchar(15) NOT NULL,
 HomePhone nvarchar(24) NOT NULL,
 Extension nvarchar(4) NOT NULL,
-Photo longblob NOT NULL,
-Notes longtext NOT NULL,
+Photo varbinary(max) NOT NULL,
+Notes nvarchar(max) NOT NULL,
 ReportsTo int NULL,
 PhotoPath nvarchar(255) NOT NULL
+CONSTRAINT FK_Employees FOREIGN KEY (ReportsTo) REFERENCES Employees(EmployeeID),
 );

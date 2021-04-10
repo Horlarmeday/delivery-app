@@ -11,4 +11,4 @@ PostalCode nvarchar(10) NOT NULL,
 Country nvarchar(15) NOT NULL,
 Phone nvarchar(24) NOT NULL,
 Fax nvarchar(24) NULL,
-HomePage longtext NULL);
+HomePage nvarchar(max) NULL);

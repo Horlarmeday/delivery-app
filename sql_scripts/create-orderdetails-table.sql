@@ -5,6 +5,6 @@ ProductID int NOT NULL,
 UnitPrice decimal(15,4) NOT NULL,
 Quantity smallint NOT NULL,
 Discount real NOT NULL,
-CONSTRAINT FK_Orders FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
-CONSTRAINT FK_ProductDetails FOREIGN KEY (ProductID) REFERENCES Products(ProductID),
+CONSTRAINT FK_OrdersOrderDetails FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
+CONSTRAINT FK_ProductOrderDetails FOREIGN KEY (ProductID) REFERENCES Products(ProductID),
 );
