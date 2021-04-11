@@ -1,13 +1,13 @@
-import { IsNotEmpty, IsString } from 'class-validator';
+import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
 
 export class CreateCategoryDto {
   @IsNotEmpty()
   @IsString()
   readonly categoryName: string;
 
-  @IsNotEmpty()
+  @IsOptional()
   @IsString()
-  readonly description: string;
+  readonly description?: string;
 
   @IsNotEmpty()
   @IsString()
