@@ -1,26 +1,40 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
+import { PRODUCT_REPOSITORY } from '../../core/constants';
+import { Product } from './entities/product.entity';
 
 @Injectable()
 export class ProductsService {
-  create(createProductDto: CreateProductDto) {
-    return 'This action adds a new product';
+  constructor(
+    @Inject(PRODUCT_REPOSITORY) private productRepository: typeof Product,
+  ) {}
+  async create(createProductDto: CreateProductDto): Promise<Product> {
+    return await this.productRepository.create<Product>(createProductDto);
   }
 
-  findAll() {
-    return `This action returns all products`;
+  async findAll(): Promise<Product[]> {
+    return await this.productRepository.findAll<Product>();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} product`;
+  async findOne(id: number): Promise<Product> {
+    return await this.productRepository.findOne({ where: { productID: id } });
   }
 
-  update(id: number, updateProductDto: UpdateProductDto) {
-    return `This action updates a #${id} product`;
+  async update(
+    id: number,
+    updateProductDto: UpdateProductDto,
+  ): Promise<[number, Product[]]> {
+    return await this.productRepository.update(updateProductDto, {
+      where: { productID: id },
+    });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} product`;
+  async search(searchString: string): Promise<Product[]> {
+    return await this.productRepository.findAll<Product>({
+      where: {
+        productName: `%${searchString}%`,
+      },
+    });
   }
 }
