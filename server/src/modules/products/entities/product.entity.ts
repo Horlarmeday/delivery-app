@@ -1,19 +1,40 @@
-import { Column, DataType, Model, Table } from 'sequelize-typescript';
+import {
+  AutoIncrement,
+  BelongsTo,
+  Column,
+  DataType,
+  ForeignKey,
+  Model,
+  PrimaryKey,
+  Table,
+} from 'sequelize-typescript';
+import { Supplier } from '../../suppliers/entities/supplier.entity';
+import { Category } from '../../categories/entities/category.entity';
 
 @Table
 export class Product extends Model {
+  @PrimaryKey
+  @AutoIncrement
+  @Column({
+    type: DataType.INTEGER,
+    allowNull: false,
+  })
+  productID: number;
+
   @Column({
     type: DataType.STRING,
     allowNull: false,
   })
   productName: string;
 
+  @ForeignKey(() => Supplier)
   @Column({
     type: DataType.INTEGER,
     allowNull: false,
   })
   supplierID: number;
 
+  @ForeignKey(() => Category)
   @Column({
     type: DataType.INTEGER,
     allowNull: false,
@@ -55,4 +76,10 @@ export class Product extends Model {
     allowNull: false,
   })
   discontinued: boolean;
+
+  @BelongsTo(() => Supplier)
+  supplier: Supplier;
+
+  @BelongsTo(() => Category)
+  category: Category;
 }
