@@ -24,7 +24,7 @@ export class Product extends Model {
     type: DataType.INTEGER,
     allowNull: false,
   })
-  productID: number;
+  id: number;
 
   @Column({
     type: DataType.STRING,

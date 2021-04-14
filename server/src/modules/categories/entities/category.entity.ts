@@ -21,7 +21,7 @@ export class Category extends Model {
     type: DataType.INTEGER,
     allowNull: false,
   })
-  categoryID: number;
+  id: number;
 
   @Column({
     type: DataType.STRING,
@@ -42,18 +42,4 @@ export class Category extends Model {
 
   @HasMany(() => Product)
   products: Product;
-
-  // public static of(params: Partial<Category>): Category {
-  //   const category = new Category();
-  //
-  //   Object.assign(category, params);
-  //
-  //   return category;
-  // }
 }
-//
-// export class CategoryRepositoryFake {
-//   public async createOne(): Promise<void> {}
-//
-//   public async findOne(): Promise<void> {}
-// }

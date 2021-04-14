@@ -20,7 +20,7 @@ export class Supplier extends Model {
     type: DataType.INTEGER,
     allowNull: false,
   })
-  supplierID: number;
+  id: number;
 
   @Column({
     type: DataType.STRING,
