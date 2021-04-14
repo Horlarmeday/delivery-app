@@ -1,0 +1,2 @@
+INSERT INTO Suppliers (companyName, contactName, contactTitle, address, city, region, postalCode, country, phone, fax, homePage)
+VALUES ('Exotic Liquids', 'Charlotte Cooper', 'Purchasing Manager', '49 Gilbert St.', 'London', 'LA', 'EC1 4SD', 'UK', '(171) 555-2222', '', '#CAJUN.HTM#');

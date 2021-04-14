@@ -1,0 +1,2 @@
+INSERT INTO Products (productName, supplierID, categoryID, quantityPerUnit, unitPrice, unitsInStock, unitsOnOrder, reorderLevel, discontinued)
+VALUES ('Chai', 1, 1, '10 boxes x 20 bags', 18, 39, 0, 10, false);
