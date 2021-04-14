@@ -3,6 +3,7 @@ import {
   BelongsTo,
   Column,
   DataType,
+  DefaultScope,
   ForeignKey,
   Model,
   PrimaryKey,
@@ -10,7 +11,11 @@ import {
 } from 'sequelize-typescript';
 import { Supplier } from '../../suppliers/entities/supplier.entity';
 import { Category } from '../../categories/entities/category.entity';
-
+@DefaultScope(() => ({
+  attributes: {
+    exclude: ['createdAt', 'updatedAt', 'categoryID', 'supplierID'],
+  },
+}))
 @Table
 export class Product extends Model {
   @PrimaryKey
@@ -57,7 +62,7 @@ export class Product extends Model {
     type: DataType.SMALLINT,
     allowNull: false,
   })
-  unitInStock: number;
+  unitsInStock: number;
 
   @Column({
     type: DataType.SMALLINT,
