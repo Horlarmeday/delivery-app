@@ -14,4 +14,11 @@ export class GeneralHelper {
 
     return { limit, offset };
   };
+
+  checkNullQueryString(productQueryDto) {
+    const { product_name, category_name, supplier_name } = productQueryDto;
+    if (product_name) return true;
+    if (category_name) return true;
+    return !!supplier_name;
+  }
 }

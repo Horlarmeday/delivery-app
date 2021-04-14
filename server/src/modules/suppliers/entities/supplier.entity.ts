@@ -43,16 +43,6 @@ export class Supplier extends Model {
   @Column({
     type: DataType.STRING,
     allowNull: false,
-    get(): unknown {
-      return {
-        city: this.getDataValue('city'),
-        country: this.getDataValue('country'),
-        phone: this.getDataValue('phone'),
-        postalCode: this.getDataValue('postalCode'),
-        region: this.getDataValue('region'),
-        street: this.getDataValue('address'),
-      };
-    },
   })
   address: string;
 
