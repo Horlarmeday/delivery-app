@@ -13,11 +13,11 @@ describe('CategoriesService', () => {
   const mockCategoriesRepository = {
     create: jest
       .fn()
-      .mockImplementation((dto) => Promise.resolve({ categoryID: 3, ...dto })),
+      .mockImplementation((dto) => Promise.resolve({ id: 3, ...dto })),
 
     findOne: jest.fn().mockReturnValue({
       ...createCategoryDto,
-      categoryID: 1,
+      id: 1,
       products: [],
     }),
   };
@@ -42,7 +42,7 @@ describe('CategoriesService', () => {
 
   it('should create a category', async () => {
     expect(await categoriesService.create(createCategoryDto)).toEqual({
-      categoryID: expect.any(Number),
+      id: expect.any(Number),
       ...createCategoryDto,
     });
     expect(mockCategoriesRepository.create).toHaveBeenCalledWith(
@@ -52,7 +52,7 @@ describe('CategoriesService', () => {
 
   it('should get a category', async () => {
     expect(await categoriesService.findOne(1)).toEqual({
-      categoryID: 1,
+      id: 1,
       ...createCategoryDto,
       products: [],
     });

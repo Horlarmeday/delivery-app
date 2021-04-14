@@ -21,13 +21,13 @@ describe('SuppliersService', () => {
   const mockSupplierRepository = {
     create: jest.fn().mockImplementation((dto) =>
       Promise.resolve({
-        supplierID: 1,
+        id: 1,
         ...dto,
       }),
     ),
 
     findOne: jest.fn().mockReturnValue({
-      supplierID: 1,
+      id: 1,
       ...createSupplierDto,
     }),
 
@@ -54,7 +54,7 @@ describe('SuppliersService', () => {
 
   it('should create a supplier', async () => {
     expect(await service.create(createSupplierDto)).toEqual({
-      supplierID: 1,
+      id: 1,
       ...createSupplierDto,
     });
     expect(mockSupplierRepository.create).toHaveBeenCalledWith(
@@ -65,7 +65,7 @@ describe('SuppliersService', () => {
   it('should get a supplier', async () => {
     expect(await service.findOne(1)).toEqual({
       ...createSupplierDto,
-      supplierID: expect.any(Number),
+      id: expect.any(Number),
     });
     expect(mockSupplierRepository.findOne).toHaveBeenCalled();
   });
@@ -73,7 +73,7 @@ describe('SuppliersService', () => {
   it('should get a supplier with products', async () => {
     expect(await service.findOneWithProducts(1)).toEqual({
       ...createSupplierDto,
-      supplierID: expect.any(Number),
+      id: expect.any(Number),
     });
   });
 

@@ -37,7 +37,7 @@ describe('ProductsController', () => {
   const mockProductService = {
     create: jest.fn((dto: any) => {
       return {
-        productID: 1,
+        id: 1,
         ...dto,
       };
     }),
@@ -47,7 +47,7 @@ describe('ProductsController', () => {
         total: 3,
         items: [
           {
-            productID: 1,
+            id: 1,
             ...createProductDto,
             category: {},
             supplier: {},
@@ -59,22 +59,22 @@ describe('ProductsController', () => {
       };
     }),
 
-    update: jest.fn((productID, dto) => {
+    update: jest.fn((id, dto) => {
       return [1];
     }),
 
     search: jest.fn().mockReturnValue([
       {
-        productID: 1,
+        id: 1,
         ...createProductDto,
         supplier: {},
         category: {},
       },
     ]),
 
-    findOne: jest.fn((productID) => {
+    findOne: jest.fn((id) => {
       return {
-        productID,
+        id,
         ...createProductDto,
         supplier: {},
         category: {},
@@ -100,7 +100,7 @@ describe('ProductsController', () => {
 
   it('should create a product', async () => {
     expect(await controller.create(createProductDto)).toEqual({
-      productID: expect.any(Number),
+      id: expect.any(Number),
       ...createProductDto,
     });
     expect(mockProductService.create).toHaveBeenCalledWith(createProductDto);
@@ -111,7 +111,7 @@ describe('ProductsController', () => {
       total: 3,
       items: [
         {
-          productID: 1,
+          id: 1,
           ...createProductDto,
           category: {},
           supplier: {},
@@ -132,7 +132,7 @@ describe('ProductsController', () => {
   it('should search a product with query parameters', async () => {
     expect(await controller.search(productQueryDto)).toEqual([
       {
-        productID: 1,
+        id: 1,
         ...createProductDto,
         supplier: {},
         category: {},
@@ -143,7 +143,7 @@ describe('ProductsController', () => {
 
   it('should get a product', async () => {
     expect(await controller.findOne('1')).toEqual({
-      productID: expect.any(Number),
+      id: expect.any(Number),
       ...createProductDto,
       supplier: {},
       category: {},

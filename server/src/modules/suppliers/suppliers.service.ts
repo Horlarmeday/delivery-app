@@ -16,7 +16,7 @@ export class SuppliersService {
 
   async findOne(id: number): Promise<Supplier> {
     return this.supplierRepository.findOne<Supplier>({
-      where: { supplierID: id },
+      where: { id },
       attributes: [
         'address',
         'city',
@@ -27,7 +27,7 @@ export class SuppliersService {
         'contactName',
         'companyName',
         'contactTitle',
-        'supplierID',
+        'id',
       ],
     });
   }
@@ -35,15 +35,13 @@ export class SuppliersService {
   async findOneWithProducts(id: number): Promise<Supplier> {
     return this.supplierRepository.findOne<Supplier>({
       where: {
-        supplierID: id,
+        id,
       },
       include: [
         {
           model: Product,
-          attributes: ['productName', 'productID'],
-          include: [
-            { model: Category, attributes: ['categoryName', 'categoryID'] },
-          ],
+          attributes: ['productName', 'id'],
+          include: [{ model: Category, attributes: ['categoryName', 'id'] }],
         },
       ],
     });
@@ -51,7 +49,7 @@ export class SuppliersService {
 
   async deleteOne(id: number) {
     return this.supplierRepository.destroy({
-      where: { supplierID: id },
+      where: { id },
     });
   }
 }

@@ -55,7 +55,7 @@ export class ProductsService {
     updateProductDto: UpdateProductDto,
   ): Promise<[number, Product[]]> {
     return await this.productRepository.update(updateProductDto, {
-      where: { productID: id },
+      where: { id },
     });
   }
 
@@ -82,7 +82,7 @@ export class ProductsService {
 
   async findOne(id: number): Promise<Product> {
     return await this.productRepository.findOne({
-      where: { productID: id },
+      where: { id },
       include: [
         { model: Category },
         {

@@ -9,15 +9,15 @@ describe('CategoriesController', () => {
   const mockCategoryService = {
     create: jest.fn((dto) => {
       return {
-        categoryID: 1,
+        id: 1,
         ...dto,
       };
     }),
 
-    findOne: jest.fn((categoryID) => {
+    findOne: jest.fn((id) => {
       return {
         ...createCategoryDto,
-        categoryID,
+        id,
         products: [],
       };
     }),
@@ -46,7 +46,7 @@ describe('CategoriesController', () => {
 
   it('should create a new category', async () => {
     expect(await categoryController.create(createCategoryDto)).toEqual({
-      categoryID: expect.any(Number),
+      id: expect.any(Number),
       ...createCategoryDto,
     });
     expect(mockCategoryService.create).toHaveBeenCalledWith(createCategoryDto);
@@ -54,7 +54,7 @@ describe('CategoriesController', () => {
 
   it('should get a category', async () => {
     expect(await categoryController.findOne('1')).toEqual({
-      categoryID: 1,
+      id: 1,
       ...createCategoryDto,
       products: [],
     });

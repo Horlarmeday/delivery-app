@@ -42,7 +42,7 @@ describe('ProductsService', () => {
   const mockProductRepository = {
     create: jest.fn().mockImplementation(() =>
       Promise.resolve({
-        productID: 1,
+        id: 1,
         ...createProductDto,
       }),
     ),
@@ -55,14 +55,14 @@ describe('ProductsService', () => {
 
     findAll: jest.fn(),
 
-    update: jest.fn((productID, dto) => {
+    update: jest.fn((id, dto) => {
       return [1];
     }),
 
     search: jest.fn().mockReturnValue(
       Promise.resolve([
         {
-          productID: 1,
+          id: 1,
           ...createProductDto,
           supplier: {},
           category: {},
@@ -72,7 +72,7 @@ describe('ProductsService', () => {
 
     findOne: jest.fn().mockReturnValue(
       Promise.resolve({
-        productID: 1,
+        id: 1,
         ...createProductDto,
         supplier: {},
         category: {},
@@ -101,7 +101,7 @@ describe('ProductsService', () => {
 
   it('should create a product', async () => {
     expect(await service.create(createProductDto)).toEqual({
-      productID: expect.any(Number),
+      id: expect.any(Number),
       ...createProductDto,
     });
   });
@@ -132,7 +132,7 @@ describe('ProductsService', () => {
 
   it('should get a product', async () => {
     expect(await service.findOne(1)).toEqual({
-      productID: expect.any(Number),
+      id: expect.any(Number),
       ...createProductDto,
       supplier: {},
       category: {},

@@ -21,24 +21,24 @@ describe('SuppliersController', () => {
   const mockSupplierService = {
     create: jest.fn((dto) => {
       return {
-        supplierID: 1,
+        id: 1,
         ...dto,
       };
     }),
-    findOne: jest.fn((supplierID) => {
+    findOne: jest.fn((id) => {
       return {
-        supplierID,
+        id,
         ...createSupplierDto,
       };
     }),
-    findOneWithProducts: jest.fn((supplierID) => {
+    findOneWithProducts: jest.fn((id) => {
       return {
-        supplierID,
+        id,
         ...createSupplierDto,
         products: [],
       };
     }),
-    remove: jest.fn((supplierID) => {
+    remove: jest.fn((id) => {
       return [1];
     }),
   };
@@ -62,21 +62,21 @@ describe('SuppliersController', () => {
   it('should create a supplier', async () => {
     expect(await controller.create(createSupplierDto)).toEqual({
       ...createSupplierDto,
-      supplierID: expect.any(Number),
+      id: expect.any(Number),
     });
   });
 
   it('should get a supplier', async () => {
     expect(await controller.findOne('1')).toEqual({
       ...createSupplierDto,
-      supplierID: expect.any(Number),
+      id: expect.any(Number),
     });
   });
 
   it('should get a supplier with products', async () => {
     expect(await controller.findOneWithProducts('1')).toEqual({
       ...createSupplierDto,
-      supplierID: expect.any(Number),
+      id: expect.any(Number),
       products: [],
     });
   });
