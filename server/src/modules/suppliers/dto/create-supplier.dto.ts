@@ -37,11 +37,11 @@ export class CreateSupplierDto {
   @IsString()
   readonly phone: string;
 
-  @IsNotEmpty()
+  @IsOptional()
   @IsString()
   readonly fax?: string;
 
-  @IsNotEmpty()
+  @IsOptional()
   @IsString()
   readonly homePage?: string;
 }
