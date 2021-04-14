@@ -1,26 +1,57 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { CreateSupplierDto } from './dto/create-supplier.dto';
-import { UpdateSupplierDto } from './dto/update-supplier.dto';
+import { SUPPLIER_REPOSITORY } from '../../core/constants';
+import { Supplier } from './entities/supplier.entity';
+import { Product } from '../products/entities/product.entity';
+import { Category } from '../categories/entities/category.entity';
 
 @Injectable()
 export class SuppliersService {
-  create(createSupplierDto: CreateSupplierDto) {
-    return 'This action adds a new supplier';
+  constructor(
+    @Inject(SUPPLIER_REPOSITORY) private supplierRepository: typeof Supplier,
+  ) {}
+  async create(createSupplierDto: CreateSupplierDto): Promise<Supplier> {
+    return this.supplierRepository.create<Supplier>(createSupplierDto);
   }
 
-  findAll() {
-    return `This action returns all suppliers`;
+  async findOne(id: number): Promise<Supplier> {
+    return this.supplierRepository.findOne<Supplier>({
+      where: { supplierID: id },
+      attributes: [
+        'address',
+        'city',
+        'country',
+        'phone',
+        'postalCode',
+        'region',
+        'contactName',
+        'companyName',
+        'contactTitle',
+        'supplierID',
+      ],
+    });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} supplier`;
+  async findOneWithProducts(id: number): Promise<Supplier> {
+    return this.supplierRepository.findOne<Supplier>({
+      where: {
+        supplierID: id,
+      },
+      include: [
+        {
+          model: Product,
+          attributes: ['productName', 'productID'],
+          include: [
+            { model: Category, attributes: ['categoryName', 'categoryID'] },
+          ],
+        },
+      ],
+    });
   }
 
-  update(id: number, updateSupplierDto: UpdateSupplierDto) {
-    return `This action updates a #${id} supplier`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} supplier`;
+  async deleteOne(id: number) {
+    return this.supplierRepository.destroy({
+      where: { supplierID: id },
+    });
   }
 }
