@@ -1,1 +1,1 @@
-CREATE DATABASE serempre;
+CREATE DATABASE serempre_test_challenge;

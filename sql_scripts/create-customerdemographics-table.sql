@@ -1,4 +1,4 @@
 DROP TABLE IF EXISTS CustomerDemographics;
 CREATE TABLE CustomerDemographics
-(CustomerTypeID nchar(10) NOT NULL PRIMARY KEY,
-CustomerDesc nvarchar(max) NOT NULL);
+(customerTypeID nchar(10) NOT NULL PRIMARY KEY,
+customerDesc nvarchar(max) NOT NULL);

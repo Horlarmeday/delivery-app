@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS Categories;
 CREATE TABLE Categories
-(CategoryID int NOT NULL PRIMARY KEY,
-CategoryName nvarchar(15) NOT NULL,
-Description nvarchar(max) NULL,
-Picture varbinary(max) NOT NULL);
+(categoryID int NOT NULL PRIMARY KEY,
+categoryName nvarchar(15) NOT NULL,
+description nvarchar(max) NULL,
+picture nvarchar(max) NOT NULL);

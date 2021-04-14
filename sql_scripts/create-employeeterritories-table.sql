@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS EmployeeTerritories;
 CREATE TABLE EmployeeTerritories
-(EmployeeID int NOT NULL,
-TerritoryID nvarchar(20) NOT NULL,
-CONSTRAINT FK_EmployeeTerritoriesEmployees FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID),
-CONSTRAINT FK_EmployeeTerritoriesTerritory FOREIGN KEY (TerritoryID) REFERENCES Territories(TerritoryID),
+(employeeID int NOT NULL,
+territoryID nvarchar(20) NOT NULL,
+CONSTRAINT FK_EmployeeTerritoriesEmployees FOREIGN KEY (employeeID) REFERENCES Employees(employeeID),
+CONSTRAINT FK_EmployeeTerritoriesTerritory FOREIGN KEY (territoryID) REFERENCES Territories(territoryID),
 );

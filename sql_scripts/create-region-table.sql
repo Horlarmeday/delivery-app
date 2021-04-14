@@ -1,4 +1,4 @@
 DROP TABLE IF EXISTS Region;
 CREATE TABLE Region
-(RegionID int NOT NULL PRIMARY KEY,
-RegionDescription nchar(50) NOT NULL);
+(regionID int NOT NULL PRIMARY KEY,
+regionDescription nchar(50) NOT NULL);
