@@ -10,4 +10,4 @@ region nvarchar(15) NULL,
 postalCode nvarchar(10) NOT NULL,
 country nvarchar(15) NOT NULL,
 phone nvarchar(24) NOT NULL,
-cax nvarchar(24) NULL);
+fax nvarchar(24) NULL);
