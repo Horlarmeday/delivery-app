@@ -62,7 +62,7 @@ export class ProductsService {
   async search(productQueryDto: ProductQueryDto): Promise<Product[]> {
     const { product_name, category_name, supplier_name } = productQueryDto;
 
-    if (!this.generalHelper.checkNullQueryString(productQueryDto)) {
+    if (!this.generalHelper.checkEmptyQueryString(productQueryDto)) {
       throw new BadRequestException(
         'Query must include one of: company name or supplier name or category name',
       );
