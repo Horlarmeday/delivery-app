@@ -1,9 +1,0 @@
-language: node_js
-node_js:
-  - 12
-script:
-  - echo '******build starts******'
-  - echo 'installing dependencies'
-  - npm install
-  - echo 'running tests'
-  - npm run test

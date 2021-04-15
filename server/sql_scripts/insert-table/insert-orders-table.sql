@@ -1,2 +1,0 @@
-INSERT INTO Orders (customerID, employeeID, orderDate, requiredDate, shippedDate, shipVia, freight, shipName, shipAddress, shipCity, shipRegion, shipPostalCode, shipCountry)
-VALUES ('VINET', 1, '1996-07-04 00:00:00.000', '1996-08-01 00:00:00.000', '1996-07-16 00:00:00.000', 1, 32.3800, 'Vins et alcools Chevalier', '59 rue de l''Abbaye', 'Reims', 'RJ', '51100', 'Brazil');
