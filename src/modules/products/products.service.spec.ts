@@ -119,7 +119,6 @@ describe('ProductsService', () => {
   });
 
   it('should throw error on search with no parameter', async () => {
-    expect.assertions(2);
     try {
       await service.search(productQueryDto);
     } catch (e) {
