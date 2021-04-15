@@ -9,7 +9,7 @@ async function bootstrap() {
   // handle all user input validation globally
   app.useGlobalPipes(new ValidateInputPipe());
   app.use(bodyParser.json({ limit: '5mb' }));
-  await app.listen(process.env.PORT, '0.0.0.0', () =>
+  await app.listen(process.env.PORT, () =>
     console.log(`Server running on ${process.env.PORT}`),
   );
 }
