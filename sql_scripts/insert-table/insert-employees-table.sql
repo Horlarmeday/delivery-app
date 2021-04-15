@@ -1,0 +1,3 @@
+INSERT INTO Employees (lastName, firstName, title, titleOfCourtesy, birthDate, hireDate, address, city, region, country, postalCode, homePhone, extension, photo, notes, reportsTo, photoPath)
+VALUES ('Alfreds', 'Maria', 'Sales Representative', 'Ms', '	1948-12-08 00:00:00.000', '1992-05-01 00:00:00.000', '507 - 20th Ave. E. Apt. 2A', 'Seattle', 'WA', 'USA', '98122', '(206) 555-9857', '5467',
+'base64String', 'Anne has a BA degree in English from St. Lawrence College. She is fluent in French and German.', 2, 'http://accweb/emmployees/davolio.bmp');
