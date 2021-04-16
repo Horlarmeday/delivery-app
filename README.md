@@ -11,8 +11,6 @@ go ahead with this project (except you want to develop using docker).
 ## Installation
 
 ```bash
-# server
-cd server
 npm install
 ```
 
@@ -20,7 +18,6 @@ npm install
 #### development
 For developmental purpose, run the following commands
 ```bash
-# server
 npm run start:dev
 ```
 #### test
@@ -31,9 +28,7 @@ npm run test
 #### production
 For production, run below command
 ```bash
-# server
-npm run build
-npm run start:prod
+npm run start
 ```
 #### Docker (recommended)
 For docker, run the following commands
@@ -49,10 +44,10 @@ This project is structured in modules. We have the Categories module, Products m
 The Categories module contains information about a product category. The files in this module include
 category controller, entity, provider, validations and the unit tests.
 
-## Products Module
+### Products Module
 The Products module contain information about products. The files are also structured exactly the same.
 
-## Suppliers Module
+### Suppliers Module
 The Suppliers module contain information about suppliers. The files are also structured exactly the same.
 
 ## Features
@@ -73,5 +68,7 @@ The features of this project include the following.
 ## API Documentation
 The API documentation for testing the endpoints is located <a href="https://documenter.getpostman.com/view/9548350/TzJpjLd5">here</a>
 
+
+While the project documentation can be found <a href="https://www.notion.so/Serempre-Test-Challenge-Documentation-61dc1d4a386542459810b0e83952f361">here</a>
 ## License
 [ISC](https://choosealicense.com/licenses/mit/)
